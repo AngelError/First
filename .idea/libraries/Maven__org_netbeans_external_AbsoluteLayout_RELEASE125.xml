@@ -2,7 +2,6 @@
   <library name="Maven: org.netbeans.external:AbsoluteLayout:RELEASE125">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE125/AbsoluteLayout-RELEASE125.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../e-olymp/postgresql-42.2.24.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE125/AbsoluteLayout-RELEASE125-javadoc.jar!/" />
