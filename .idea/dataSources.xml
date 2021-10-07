@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="McDonald's" uuid="7558e818-4903-448c-8799-6b5b743bc3e7">
+    <data-source source="LOCAL" name="McDonalds" uuid="065dd547-844e-4f17-92c9-22f89a91eb48">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/McDonald's Databases</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/McDonaldsDatabase</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

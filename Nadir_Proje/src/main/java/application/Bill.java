@@ -5,9 +5,14 @@
  */
 package application;
 
+import DB.UserHelper;
+
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lenovo
@@ -19,10 +24,37 @@ public class Bill extends javax.swing.JFrame implements ActionListener {
      * Creates new form Bill
      */
 
-    public Bill() {
+    public String key;
+    public List<Object> products = new ArrayList<>();
+    public List<Object> prices = new ArrayList<>();
+    public double totalPrice;
+
+    public Bill(String key, List<Object> products, List<Object> prices, double totalPrice) {
+        this.key = key;
+        this.products = products;
+        this.prices = prices;
+        this.totalPrice = totalPrice;
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         button();
+        setBillTable();
+        setTotalPriceText();
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public List<Object> getProducts() {
+        return products;
+    }
+
+    public List<Object> getPrices() {
+        return prices;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
     public void button() {
@@ -47,6 +79,20 @@ public class Bill extends javax.swing.JFrame implements ActionListener {
             dispose();
             n.setVisible(true);
         }
+    }
+
+    public void setBillTable() {
+        Object[] row = new Object[2];
+        DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
+        for (int i = 0; i < getProducts().size(); i++) {
+            row[0] = getProducts().get(i);
+            row[1] = getPrices().get(i);
+            model2.addRow(row);
+        }
+    }
+
+    public void setTotalPriceText() {
+        totalText.setText(String.valueOf(getTotalPrice()));
     }
 
     /**
