@@ -25,8 +25,8 @@ public class Bill extends javax.swing.JFrame implements ActionListener {
      */
 
     public String key;
-    public List<Object> products = new ArrayList<>();
-    public List<Object> prices = new ArrayList<>();
+    public List<Object> products;
+    public List<Object> prices;
     public double totalPrice;
 
     public Bill(String key, List<Object> products, List<Object> prices, double totalPrice) {
@@ -71,11 +71,11 @@ public class Bill extends javax.swing.JFrame implements ActionListener {
             dispose();
             m.setVisible(true);
         } else if (e.getSource() == cashButton) {
-            CashPayment n = new CashPayment();
+            CashPayment n = new CashPayment(key, totalPrice, products,prices);
             dispose();
             n.setVisible(true);
         } else if (e.getSource() == onlineButton) {
-            OnlinePayment n = new OnlinePayment();
+            OnlinePayment n = new OnlinePayment(key, totalPrice);
             dispose();
             n.setVisible(true);
         }

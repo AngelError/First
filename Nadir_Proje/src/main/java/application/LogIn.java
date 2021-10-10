@@ -54,25 +54,30 @@ public class LogIn extends JFrame implements ActionListener {
         String password1 = password.getText();
 
         User user = new User();
-        user.setUsername("");
         user.setFin(fin1);
         user.setPassword(password1);
 
         if (e.getSource() == login) {
 
-            String sql = String.format("insert into user1 (username, fin, password) values ('%s', '%s','%s');",
-                    user.getUsername(),
+            String sql = String.format("insert into user1 (fin, password) values ('%s','%s');",
                     user.getFin(),
                     user.getPassword());
             System.out.println(sql);
+            String a = null;
             try {
-                statement.execute(sql);
+                statement.execute(sql); // it helps to create
                 JOptionPane.showMessageDialog(null, "This FIN is not found. Register it!");
                 statement.execute(String.format("delete from user1 where fin = '%s'", fin1));
             } catch (SQLException ex) {
                 if (user.getFin().length() > 7) {
                     JOptionPane.showMessageDialog(null, "The maximum length of Fin must be 7!");
-                } else {
+                }
+//                else if (user.getPassword() != null) {
+//                    System.out.println(a);
+//                    a = "ss";
+//                    System.out.println(a);
+//                }
+                else {
                     JOptionPane.showMessageDialog(null, "Successfuly LogIn!");
                     MainMenu m = new MainMenu(user.getFin());
                     dispose();

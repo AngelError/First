@@ -14,13 +14,26 @@ import java.awt.event.ActionListener;
  */
 public class OnlinePayment extends javax.swing.JFrame implements ActionListener {
 
+    public String key;
+    public double totalPrice;
+
     /**
      * Creates new form OnlinePayment
      */
-    public OnlinePayment() {
+    public OnlinePayment(String key, double totalPrice) {
+        this.key=key;
+        this.totalPrice = totalPrice;
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         button();
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
     public void button() {
@@ -326,13 +339,13 @@ public class OnlinePayment extends javax.swing.JFrame implements ActionListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == cashButton) {
-            CashPayment b = new CashPayment();
+            CashPayment b = new CashPayment(key,totalPrice, null, null);
             dispose();
             b.setVisible(true);
         } else if (e.getSource() == payButton) {
-            OnlinePayment b = new OnlinePayment();
-            dispose();
-            b.setVisible(true);
+//            OnlinePayment b = new OnlinePayment();
+//            dispose();
+//            b.setVisible(true);
         }
     }
     // End of variables declaration//GEN-END:variables
